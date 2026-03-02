@@ -118,12 +118,3 @@ Il fournit ainsi un cadre robuste pour développer des applications web respecta
 ## Licence
 
 Support pédagogique destiné à un usage académique.
-
----
-
-Si vous le souhaitez, je peux également générer :
-
-* une version plus minimaliste
-* une version plus académique
-* une version enrichie avec plan détaillé
-* ou une version optimisée SEO pour GitHub Pages

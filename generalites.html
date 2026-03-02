@@ -1,0 +1,1151 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Introduction à STRUTS 1.x par l'exemple">
+      
+      
+        <meta name="author" content="Serge Tahé">
+      
+      
+        <link rel="canonical" href="https://stahe.github.io/struts1x-dec-2003/generalites.html">
+      
+      
+        <link rel="prev" href="index.html">
+      
+      
+        <link rel="next" href="lapplication-strutspersonne.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.0">
+    
+    
+      
+        <title>1. Généralités - Introduction à STRUTS 1.x par l'exemple</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.618322db.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="stylesheets/focus.css">
+    
+    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-EBZC3JVJNR"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    var siteName = "Introduction à STRUTS 1.x par l'exemple";
+    gtag('config', 'G-EBZC3JVJNR', {
+        'page_title': siteName
+    });
+  </script>
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#1-generalites" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="index.html" title="Introduction à STRUTS 1.x par l&#39;exemple" class="md-header__button md-logo" aria-label="Introduction à STRUTS 1.x par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Introduction à STRUTS 1.x par l'exemple
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              1. Généralités
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode sombre"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Passer au mode sombre" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="purple"  aria-label="Passer au mode clair"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Passer au mode clair" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://stahe.github.io/struts1x-dec-2003" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="index.html" title="Introduction à STRUTS 1.x par l&#39;exemple" class="md-nav__button md-logo" aria-label="Introduction à STRUTS 1.x par l'exemple" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Introduction à STRUTS 1.x par l'exemple
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://stahe.github.io/struts1x-dec-2003" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Accueil
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Généralités
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="generalites.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Généralités
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#11-objectifs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1. Objectifs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#12-le-modele-mvc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2. Le modèle MVC
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#13-une-demarche-de-developpement-mvc-a-laide-de-servlets-et-pages-jsp" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3. Une démarche de développement MVC à l&#x27;aide de servlets et pages JSP
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#14-la-demarche-de-developpement-struts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4. La démarche de développement STRUTS
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1.4. La démarche de développement STRUTS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#141-la-methode-de-developpement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.1. La méthode de développement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#142-les-outils-du-developpement-struts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4.2. Les outils du développement STRUTS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#15-deploiement-dune-application-struts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5. Déploiement d&#x27;une application Struts
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="lapplication-strutspersonne.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. L'application strutspersonne
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="traitement-du-formulaire-par-le-controleur.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Traitement du formulaire par le contrôleur
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="utilisation-de-formulaires-dynamiques.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Utilisation de formulaires dynamiques
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="formulaires-dynamiques-avec-contraintes-dintegrite.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Formulaires dynamiques avec contraintes d'intégrité
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="formulaires-html.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Formulaires HTML
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="-application-quiest.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7.  Application QuiEst
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="creation-dun-plugin.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Création d'un plugin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="exploitation-dune-source-de-donnees.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Exploitation d'une source de données
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="annexes.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    10. Annexes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="1-generalites">1. Généralités</h1>
+<h2 id="11-objectifs">1.1. Objectifs</h2>
+<p>On se propose ici de découvrir une méthode de développement appelée <strong>STRUTS</strong>. Jakarta Struts est un projet de l&#x27;Apache Software Foundation (www.apache.org) qui a pour but de fournir un cadre standard de développement d&#x27;applications web en Java respectant l&#x27;architecture dite MVC (Modèle-Vue-Contrôleur). </p>
+<h2 id="12-le-modele-mvc">1.2. Le modèle MVC</h2>
+<p>Le modèle MVC cherche à séparer les couches présentation, traitement et accès aux données. Une application web respectant ce modèle sera architecturée de la façon suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000363000000855375987C.png" style="display:inline-block; margin:4px;width:11.471cm;height:1.76cm;" class="odt-zoomable" data-zoom-src="images/1000000000000363000000855375987C.png" /></td></tr></table>
+
+<p>Une telle architecture est appelée 3-tiers ou à 3 niveaux :</p>
+<ul>
+<li>l&#x27;interface utilisateur est le V (la vue)</li>
+<li>la logique applicative est le C (le contrôleur)</li>
+<li>les sources de données sont le M (Modèle)</li>
+</ul>
+<p>L&#x27;<strong>interface utilisateur</strong> est souvent un navigateur web mais cela peut être également une application autonome qui via le réseau envoie des requêtes HTTP au service web et met en forme les résultats que celui-ci lui renvoie. La <strong>logique applicative</strong> est constituée des scripts traitant les demandes de l&#x27;utilisateur. La <strong>source de données</strong> est souvent une base de données mais cela peut être aussi de simples fichiers plats, un annuaire LDAP, un service web distant,... Le développeur a intérêt à maintenir une grande indépendance entre ces trois entités afin que si l&#x27;une d&#x27;elles change, les deux autres n&#x27;aient pas à changer ou peu. </p>
+<p>Lorsqu&#x27;on cherche à appliquer ce modèle avec des servlets et pages JSP, on obtient l&#x27;architecture suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000004E200000213F96D6913.png" style="display:inline-block; margin:4px;width:16.536cm;height:7.026cm;" class="odt-zoomable" data-zoom-src="images/10000000000004E200000213F96D6913.png" /></td></tr></table>
+
+<p>Dans le bloc [Logique Applicative], on distingue</p>
+<ul>
+<li>la servlet qui est la porte d&#x27;entrée de l&#x27;application qu&#x27;on appelle aussi <strong>contrôleur</strong></li>
+<li>le bloc [Classes métier] qui regroupe des classes Java nécessaires à la logique de l&#x27;application.</li>
+<li>le bloc [Classes d&#x27;accès aux données] qui regroupe des classes Java nécessaires pour obtenir les données nécessaire à la servlet, souvent des données persistantes (BD, fichiers, service WEB, ...)</li>
+<li>le bloc des pages JSP constituant les vues de l&#x27;application. </li>
+</ul>
+<h2 id="13-une-demarche-de-developpement-mvc-a-laide-de-servlets-et-pages-jsp">1.3. Une démarche de développement MVC à l&#x27;aide de servlets et pages JSP</h2>
+<p>Nous avons défini une démarche pour le développement d&#x27;applications web java respectant le modèle MVC précédent. Nous la rappelons ici.</p>
+<ol>
+<li>On commencera par définir toutes les vues de l&#x27;application. Celles-ci sont les pages Web présentées à l&#x27;utilisateur. On se placera donc du point de vue de celui-ci pour dessiner les vues. On distingue trois types de vues :<ul>
+<li>le formulaire de saisie qui vise à obtenir des informations de l&#x27;utilisateur. Celui-ci dispose en général d&#x27;un bouton pour envoyer les informations saisies au serveur.</li>
+<li>la page de réponse qui ne sert qu&#x27;à donner de l&#x27;information à l&#x27;utilisateur. Celle-ci dispose souvent d&#x27;un lien permettant à l&#x27;utilisateur de poursuivre l&#x27;application avec une autre page.</li>
+<li>la page mixte : la servlet a envoyé au client une page contenant des informations qu&#x27;elle a générées. Cette même page va servir au client pour fournir à la servlet d&#x27;autres informations.</li>
+</ul>
+</li>
+</ol>
+<ol start="2">
+  <li>Chaque vue donnera naissance à une page JSP. Pour chacune de celles-ci :
+    <ul>
+      <li>on dessinera l&#x27;aspect de la page
+      </li>
+      <li>on déterminera quelles sont les parties dynamiques de celle-ci :
+        <ul>
+          <li>les informations à destination de l&#x27;utilisateur qui devront être fournies par la servlet en paramètres à la vue JSP
+          </li>
+          <li>les données de saisie qui devront être transmises à la servlet pour traitement. Celles-ci devront faire partie d&#x27;un formulaire HTML.
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<ol start="3">
+  <li>On pourra schématiser les E/S de chaque vue 
+  </li>
+</ol>
+
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/10000000000002EC0000006DC9254038.png" style="display:inline-block; margin:4px;width:9.895cm;height:1.443cm;" class="odt-zoomable" data-zoom-src="images/10000000000002EC0000006DC9254038.png" /></td></tr></table>
+
+<ol>
+    <ul>
+      <li>les entrées sont les données que devra fournir la servlet à la page JSP soit dans la requête (request) ou la session (session). 
+      </li>
+      <li>les sorties sont les données que devra fournir la page JSP à la servlet. Elles font partie d&#x27;un formulaire HTML et la servlet les récupèrera par une opération du type <b>request.getparameter(...)</b>.
+      </li>
+    </ul>
+</ol>
+
+<ol start="4">
+  <li>On écrira le code Java/JSP de chaque vue. Il aura le plus souvent la forme suivante :
+  </li>
+</ol>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="err">&lt;</span>%@ page ... %&gt;    // importations de classes le plus souvent
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="err">&lt;</span>%!
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>    // variables d&#39;instance de la page JSP (=globales)
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>    // nécessaire que si la page JSP a des méthodes partageant des variables (rare)    
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>    ...    
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>%&gt;
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="err">&lt;</span>%
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>    // récupération des données envoyées par la servlet
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>    // soit dans la requête (request) soit dans la session (session)
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>    ...
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>%&gt;
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>...
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>        // on cherchera ici à minimiser le code java
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<ol start="5">
+  <li>On peut alors passer aux premiers tests. La méthode de déploiement expliquée ci-dessous est propre au serveur Tomcat :
+  </li>
+</ol>
+
+<ol>
+    <ul>
+      <li>le contexte de l&#x27;application doit être créé dans le fichier <b>server.xml</b> de Tomcat. On pourra commencer par tester ce contexte. Soit <b>C</b> ce contexte et <b>DC</b> le dossier associé à celui-ci. On construira un fichier statique <b>test.html</b> qu&#x27;on placera dans le dossier <b>DC</b>. Après avoir lancé Tomcat, on demandera avec un navigateur l&#x27;URL <b>http://localhost:8080/DC/test.html</b>.
+      </li>
+      <li>chaque page JSP peut être testée. Si une page JSP s&#x27;appelle <b>formulaire.jsp</b>, on demandera avec un navigateur l&#x27;URL <b>http://localhost:8080/DC/formulaire.jsp</b>. La page JSP attend des valeurs de la servlet qui l&#x27;appelle. Ici on l&#x27;appelle directement donc elle ne recevra pas les paramètres attendus. Afin que les tests soient néanmoins possibles on initialisera soi-même dans la page JSP les paramètres attendus avec des constantes. Ces premiers tests permettent de vérifier que les pages JSP sont syntaxiquement correctes.
+      </li>
+    </ul>
+</ol>
+
+<ol start="6">
+  <li>On écrit ensuite le code de la servlet. Celle-ci a deux méthodes bien distinctes :
+  </li>
+</ol>
+
+<ol>
+    <ul>
+      <li>la méthode <b>init</b> qui sert à :
+        <ul>
+          <li>récupérer les paramètres de configuration de l&#x27;application dans le fichier <b>web.xml</b> de celle-ci
+          </li>
+          <li>éventuellement créer des instances de classes métier qu&#x27;elle sera amenée à utiliser ensuite
+          </li>
+          <li>gérer une éventuelle liste d&#x27;erreurs d&#x27;initialisation qui sera renvoyée aux futurs utilisateurs de l&#x27;application. Cette gestion d&#x27;erreurs peut aller jusqu&#x27;à l&#x27;envoi d&#x27;un mél à l&#x27;administrateur de l&#x27;application afin de le prévenir d&#x27;un dysfonctionnement
+          </li>
+        </ul>
+      </li>
+      <li>la méthode <b>doGet</b> ou <b>doPost</b> selon la façon dont la servlet reçoit ses paramètres de ses clients. Si la servlet gère plusieurs formulaires, il est bon que chacun d&#x27;entre-eux envoie une information qui l&#x27;identifie de façon unique. Cela peut se faire au moyen d&#x27;un attribut caché dans le formulaire du type <b>&lt;input type=&quot;hidden&quot; name=&quot;action&quot; value=&quot;...&quot;&gt;</b>. La servlet peut commencer par lire la valeur de ce paramètre puis déléguer le traitement de la requête à une méthode privée interne chargée de traiter ce type de requête.
+      </li>
+      <li>On évitera au maximum de mettre du code métier dans la servlet. Elle n&#x27;est pas faite pour cela. La servlet est une sorte de chef d&#x27;équipe (contrôleur) qui reçoit des demandes de ses clients (clients web) et qui les fait exécuter par les personnes les plus appropriées (les classes métier). Lors de l&#x27;écriture de la servlet, on déterminera l&#x27;interface des classes métier à écrire (constructeurs, méthodes). Cela si ces classes métier sont à construire. Si elles existent déjà, alors la servlet doit s&#x27;adapter à l&#x27;interface existante.
+      </li>
+      <li>le code de la servlet sera compilé.
+      </li>
+    </ul>
+</ol>
+
+<ol start="7">
+  <li>On écrira le squelette des classes métier nécessaires à la servlet. Par exemple, si la servlet utilise un objet de type <b>proxyArticles</b> et que cette classe doit avoir une méthode <b>getCodes</b> rendant une liste (ArrayList) de chaînes de caractères, on peut se contenter dans un premier temps d&#x27;écrire :
+  </li>
+</ol>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="kd">public</span><span class="w"> </span><span class="n">ArrayList</span><span class="w"> </span><span class="nf">getCodes</span><span class="p">(){</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">codes</span><span class="o">=</span><span class="w"> </span><span class="p">{</span><span class="s">&quot;code1&quot;</span><span class="p">,</span><span class="s">&quot;code2&quot;</span><span class="p">,</span><span class="s">&quot;code3&quot;</span><span class="p">};</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">    </span><span class="n">ArrayList</span><span class="w"> </span><span class="n">aCodes</span><span class="o">=</span><span class="k">new</span><span class="w"> </span><span class="n">ArrayList</span><span class="p">();</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;</span><span class="n">codes</span><span class="p">.</span><span class="na">length</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">){</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">        </span><span class="n">aCodes</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="n">codes</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">);</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">aCodes</span><span class="p">;</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">}</span>
+</code></pre></div>
+<ol start="8">
+  <li>On peut alors passer aux tests de la servlet.
+  </li>
+</ol>
+
+<ol>
+    <ul>
+      <li>le fichier de configuration <b>web.xml</b> de l&#x27;application doit être créé. Il doit contenir toutes les informations attendues par la méthode <b>init</b> de la servlet (&lt;init-param&gt;). Par ailleurs, on fixe l&#x27;URL au travers de laquelle sera atteinte la servlet principale (&lt;servlet-mapping&gt;).
+      </li>
+      <li>toutes les classes nécessaires (servlet, classes métier) sont placées dans <b>WEB-INF/classes</b>.
+      </li>
+      <li>toutes les bibliothèques de classes (.jar) nécesaires sont placées dans <b>WEB-INF/lib.</b> Ces bibliothèques peuvent contenir des classes métier, des pilotes JDBC, ....
+      </li>
+      <li>les vues JSP sont placées sous la racine de l&#x27;application ou un dossier propre. On fait de même pour les autres ressources (html, images, son, vidéos, ...)
+      </li>
+      <li>ceci fait, l&#x27;application est testée et les premières erreurs corrigées. A la fin de cette phase, l&#x27;architecture de l&#x27;application est opérationnelle. Cette phase de test peut être délicate sachant qu&#x27;on n&#x27;a pas d&#x27;outil de débogage avec Tomcat. il faudrait pour cela que Tomcat soit lui-même intégré dans un outil de développement (Jbuilder Developer, Sun One Studio, ...). On pourra s&#x27;aider d&#x27;instructions <b>System.out.println(&quot;....&quot;)</b> qui écrivent dans la fenêtre de Tomcat. La première chose à vérifier est que la méthode <b>init</b> récupère bien toutes les données provenant du fichier <b>web.xml</b>. On pourra pour cela écrire la valeur de celles-ci dans la fenêtre de Tomcat. On vérifiera de la même façon que les méthodes <b>doGet</b> et <b>doPost</b> récupèrent correctement les paramètres des différents formulaires HTML de l&#x27;application.
+      </li>
+    </ul>
+</ol>
+
+<p>On écrit les classes métier dont a besoin la servlet. On a là en général le développement classique d&#x27;une classe Java le plus souvent indépendante de toute application web. Elle sera tout d&#x27;abord testée en dehors de cet environnement avec une application console par exemple. Lorsqu&#x27;une classe métier a été écrite, on peut l&#x27;intégrer dans l&#x27;architecture de déploiement de l&#x27;application web et tester sa correcte intégration dans celui-ci. On procèdera ainsi pour chaque classe métier.</p>
+<h2 id="14-la-demarche-de-developpement-struts">1.4. La démarche de développement STRUTS</h2>
+<p>Les créateurs de la méthodologie STRUTS ont cherché à définir une méthode de développement standard qui respecte l&#x27;architecture MVC pour les applications web écrites en java. Il y a deux aspects au projet STRUTS :</p>
+<ul>
+  <li>la méthode de développement. Nous verrons qu&#x27;elle est assez proche de celle décrite ci-dessus pour les servlets et pages JSP
+  </li>
+  <li>les outils qui nous permettent d&#x27;appliquer cette méthode de développement. Ce sont des bibliothèques de classes Java que l&#x27;on trouve sur le site de la fondation Apache (www.apache.org).
+  </li>
+</ul>
+
+<h3 id="141-la-methode-de-developpement">1.4.1. La méthode de développement</h3>
+<p>L&#x27;architecture MVC utilisée par STRUTS est la suivante :</p>
+<table class="odt-table" style="border-collapse: collapse; width: 100%; margin-bottom: 1em;"><tr><td style="border: 1px solid #ddd; padding: 8px; vertical-align: top;"><img src="images/1000000000000565000002389752E5C0.png" style="display:inline-block; margin:4px;width:17cm;height:6.99cm;" class="odt-zoomable" data-zoom-src="images/1000000000000565000002389752E5C0.png" /></td></tr></table>
+
+<ul>
+  <li>le contrôleur est le coeur de l&#x27;application. Toutes les demandes du client transitent par lui. C&#x27;est une servlet générique fournie par STRUTS. On peut dans certains cas être amené à la dériver. Pour les cas simples, ce n&#x27;est pas nécessaire. Cette servlet générique prend les informations dont elle a besoin dans un fichier le plus souvent appelé <b>struts-config.xml</b>.
+  </li>
+  <li>si la requête du client contient des paramètres de formulaire, ceux-ci sont mis dans un objet <b>Bean</b>. Une classe est dite de type <b>bean</b> si elle observe des règles de construction que nous verrons un peu plus loin. Les objets <b>bean</b> ainsi créés au fil du temps sont stockés dans la session ou la requête du client. Ce point est configurable. Ils n&#x27;ont pas à être recréés s&#x27;ils l&#x27;ont déjà été.
+  </li>
+  <li>dans le fichier de configuration <b>struts-config.html</b>, à chaque URL devant être traitée par programme (ne correspondant donc pas à une vue JSP qu&#x27;on pourrait demander directement) on associe certaines informations :
+    <ul>
+      <li>le <b>nom de la classe</b> de type <b>Action</b> chargée de traiter la requête. Là encore, l&#x27;objet <b>Action</b> instancié peut être conservé dans la session ou la requête.
+      </li>
+      <li>si l&#x27;URL demandée est paramétrée (cas de l&#x27;envoi d&#x27;un formulaire au contrôleur), le nom du <b>bean</b> chargé de mémoriser les informations du formulaire est indiqué.
+      </li>
+    </ul>
+  </li>
+  <li>muni de ces informations fournies par son fichier de configuration, à la réception d&#x27;une demande d&#x27;URL par un client, le contrôleur est capable de déterminer s&#x27;il y a un bean à créer et lequel. Une fois instancié, le bean peut vérifier que les données qu&#x27;il a stockées et qui proviennent du formulaire, sont valides ou non. Une méthode du bean appelée <b>validate</b> est appelée automatiquement par le contrôleur. Le bean est construit par le développeur. Celui-ci met donc dans la méthode <b>validate</b> le code vérifiant la validité des données du formulaire. Si les données se révèlent invalides, le contrôleur n&#x27;ira pas plus loin. Il passera la main à une vue dont il trouvera le nom dans son fichier de configuration. L&#x27;échange est alors terminé. On notera que le développeur peut demander à ce que la validité du formulaire ne soit pas vérifiée. Il le fait également dans le fichiet <b>struts-config.html</b>. Dans ce cas, le contrôleur n&#x27;appelle pas la méthode <b>validate</b> du bean.
+  </li>
+  <li>si les données du bean sont correctes, ou s&#x27;il n&#x27;y a pas de vérification ou s&#x27;il n&#x27;y a pas de bean, le contrôleur passe la main à l&#x27;objet de type <b>Action</b> associé à l&#x27;URL. Il le fait en demandant l&#x27;exécution de la méthode <b>execute</b> de cet objet à laquelle il transmet la référence du Bean qu&#x27;il a éventuellement construit. C&#x27;est ici que le développeur fait ce qu&#x27;il a à faire : il devra éventuellement faire appel à des classes métier ou à des classes d&#x27;accès aux données. A la fin du traitement, l&#x27;objet <b>Action</b> rend au contrôleur le nom de la vue qu&#x27;il doit envoyer en réponse au client.
+  </li>
+  <li>le contrôleur envoie cette réponse. L&#x27;échange avec le client est terminé.
+  </li>
+</ul>
+
+<p>Commence à se dessiner la méthodologie de développement STRUTS :</p>
+<ul>
+  <li>la définition des vues. On distingue les vues qui sont des formulaires et les autres. 
+    <ul>
+      <li>chaque vue formulaire donne naissance à une définition dans le fichier <b>struts-config.xml</b>. On y définit les informations suivantes :
+        <ul>
+          <li>le nom de la classe <b>Bean</b> qui contiendra les données du formulaire ainsi que l&#x27;indication sur le fait que les données doivent être vérifiées ou non. Si elles doivent être vérifiées et qu&#x27;elles s&#x27;avèrent invalides, on doit indiquer la vue à envoyer en réponse au client dans ce cas.
+          </li>
+          <li>le nom de la classe <b>Action</b> chargée de traiter le formulaire.
+          </li>
+          <li>le nom de toutes les vues susceptibles d&#x27;être envoyées en réponse au client une fois que la requête a été traitée. La classe <b>Action</b> choisira l&#x27;une d&#x27;elles selon le résultat du traitement.
+          </li>
+        </ul>
+      </li>
+      <li>chaque vue fait l&#x27;objet d&#x27;une page JSP. Nous verrons que dans les vues notamment les vues formulaires, on utilise parfois une bibliothèque de balises propres à Struts.
+      </li>
+    </ul>
+  </li>
+  <li>l&#x27;écriture des classes Javabean correspondant aux vues formulaires
+  </li>
+  <li>l&#x27;écriture des classes <b>Action</b> chargées de traiter les formulaires
+  </li>
+  <li>l&#x27;écriture des éventuelles classes métier ou d&#x27;accès aux données
+  </li>
+</ul>
+
+<h3 id="142-les-outils-du-developpement-struts">1.4.2. Les outils du développement STRUTS</h3>
+<p>Le projet STRUTS est l&#x27;un des projets de l&#x27;Apache Software Foundation. Plusieurs de ces projets sont réunis sous la dénomination <strong>Jakarta</strong> et sont disponibles à l&#x27;URL <strong>http://jakarta.apache.org</strong> :</p>
+<p><img src="images/10000000000002C8000000D4911DDA01.png" style="width:17.988cm;height:5.355cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002C8000000D4911DDA01.png" /></p>
+<p>Il est conseillé de lire cette page. De nombreux projets présentent de l&#x27;intérêt pour les développeurs java. Si nous suivons ci-dessus le lien <strong>Struts</strong>, nous arrivons à la page d&#x27;accueil du projet :</p>
+<p><img src="images/10000000000003B7000000BD16CDB975.png" style="width:17.988cm;height:3.575cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000003B7000000BD16CDB975.png" /></p>
+<p>Là aussi, il est conseillé de lire la page d&#x27;accueil. Pour télécharger les bibliothèques java de Struts, nous suivons le lien <strong>Binaries</strong> ci-dessus :</p>
+<p><img src="images/10000000000001280000009E44DCBC46.png" style="width:7.83cm;height:4.18cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001280000009E44DCBC46.png" /></p>
+<p>Pour le monde Windows, on utilisera le lien 1.1.zip et 1.1.tar.gz pour le monde Unix (nov 2003). Une fois le fichier 1.1.zip décompressé, nous obtenons l&#x27;arborescence suivante :</p>
+<p><img src="images/10000000000001210000009C6783922C.png" style="width:7.645cm;height:4.128cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001210000009C6783922C.png" /></p>
+<p>On trouvera dans cette arborescence les bibliothèques des classes java nécessaires au développement STRUTS. Celles-ci sont dans des fichiers .jar ou .war, fichiers analogues aux fichiers .zip. On peut les ouvrir avec les mêmes utilitaires. La plupart des bibliothèques nécessaires sont dans le dossier <strong>lib</strong> ci-dessus :</p>
+<p><img src="images/1000000000000155000001C6FB537612.png" style="width:9.021cm;height:12.01cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000155000001C6FB537612.png" /></p>
+<p>Outre les bibliothèques de classes .jar, on trouve des fichiers .dtd (Document Type Definition) qui contiennent des règles de validité de fichiers XML. Un fichier XML peut dans son contenu référencer un tel fichier DTD. Le programme (appelé <strong>parseur</strong>) qui analyse le contenu du fichier XML utilisera les règles de validité trouvées dans le fichier DTD référencé pour déterminer si le fichier XML est syntaxiquement correct. Ainsi par exemple, le fichier <strong>struts-config_1_1.dtd</strong> fixe les règles de construction du fichier de configuration <strong>struts-config.xml</strong> pour la version 1.1 de Struts.</p>
+<p>Voyons maintenant où placer les différents éléments de l&#x27;arborescence de Struts pour déployer une application Struts au sein du serveur Tomcat.</p>
+<h2 id="15-deploiement-dune-application-struts">1.5. Déploiement d&#x27;une application Struts</h2>
+<p>Une application Struts est une application web comme une autre. Elle suit donc  les règles de déploiement du conteneur dans laquelle elle est exécutée. Ici une application, que nous appellerons <strong>strutspersonne</strong>, sera exécutée par un serveur Tomcat  version 4.x. On trouvera en annexe, le mode de déploiment pour Tomcat version 5.x.. Nous suivons ici les règles de déploiement de Tomcat 4.x :</p>
+<ol>
+  <li>Nous définissons le contexte <b>strutspersonne</b> dans le fichier de configuration <b>server.xml</b> de Tomcat :
+  </li>
+</ol>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="w">                </span><span class="nt">&lt;Context</span><span class="w"> </span><span class="na">path=</span><span class="s">&quot;/strutspersonne&quot;</span><span class="w"> </span><span class="na">docBase=</span><span class="s">&quot;e:/data/serge/web/struts/personne&quot;</span><span class="w"> </span><span class="nt">/&gt;</span>
+</code></pre></div>
+<p>Ceci fait, nous relançons éventuellement Tomcat afin qu&#x27;il prenne en compte le nouveau contexte. Nous pouvons vérifier la validité du contexte en demandant l&#x27;URL <strong>http://localhost:8080/strutspersonne</strong> :</p>
+<p><img src="images/10000000000001BD000000D7528F00B9.png" style="width:11.772cm;height:5.689cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001BD000000D7528F00B9.png" /></p>
+<p>Si nous n&#x27;obtenons pas une page d&#x27;erreurs, c&#x27;est que le contexte est correct.</p>
+<ol start="2">
+  <li>Nous créons dans le dossier physique associé au contexte <b>strutspersonne</b>, le sous-dossier <b>WEB-INF</b>.
+  </li>
+  <li>Dans le dossier WEB-INF de l&#x27;application , nous définissons le fichier de configuration <b>web.xml</b> de l&#x27;application :
+  </li>
+</ol>
+
+<p><img src="images/10000000000001360000004DABBDF95D.png" style="width:8.2cm;height:2.037cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001360000004DABBDF95D.png" /></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot;?&gt;</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="cp">&lt;!DOCTYPE web-app</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="cp">    PUBLIC &quot;-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="cp">    &quot;http://java.sun.com/dtd/web-app_2_3.dtd&quot;&gt;</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="nt">&lt;web-app&gt;</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">    </span><span class="nt">&lt;servlet&gt;</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">      </span><span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="nt">&lt;servlet-class&gt;</span>org.apache.struts.action.ActionServlet<span class="nt">&lt;/servlet-class&gt;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="w">    </span><span class="nt">&lt;init-param&gt;</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a><span class="w">        </span><span class="nt">&lt;param-name&gt;</span>config<span class="nt">&lt;/param-name&gt;</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="w">      </span><span class="nt">&lt;param-value&gt;</span>/WEB-INF/struts-config.xml<span class="nt">&lt;/param-value&gt;</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="nt">&lt;/init-param&gt;</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a><span class="w">  </span><span class="nt">&lt;/servlet&gt;</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="w">  </span><span class="nt">&lt;servlet-mapping&gt;</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">      </span><span class="nt">&lt;servlet-name&gt;</span>action<span class="nt">&lt;/servlet-name&gt;</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a><span class="w">    </span><span class="nt">&lt;url-pattern&gt;</span>*.do<span class="nt">&lt;/url-pattern&gt;</span>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="w">  </span><span class="nt">&lt;/servlet-mapping&gt;</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a><span class="nt">&lt;/web-app&gt;</span>
+</code></pre></div>
+<ul>
+  <li>la classe du contrôleur (servlet) de l&#x27;application est une classe prédéfinie de Stuts, appelé <b>ActionServlet</b>. Elle se trouve dans le fichier <b>struts.jar</b>. Afin que Tomcat puisse trouver cette classe, on placera <b>struts.jar</b> dans le dossier <b>&lt;tomcat&gt;\common\lib</b> qui est l&#x27;un des dossiers explorés par Tomcat lorsqu&#x27;il recherche des classes. Nous y placerons en fait tous les fichiers .jar trouvés dans le dossier <b>&lt;struts&gt;\lib</b> où <b>&lt;struts&gt;</b> est le dossier racine de l&#x27;arborescence de Struts. 
+  </li>
+</ul>
+
+<p><img src="images/1000000000000169000000C999526481.png" style="width:9.55cm;height:5.318cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/1000000000000169000000C999526481.png" /></p>
+<ul>
+  <li>On placera également les fichiers <b>struts-el.jar</b> et <b>jstl.jar</b> se trouvant dans <b>&lt;struts&gt;\contrib\struts-el\lib</b> :
+  </li>
+</ul>
+
+<p><img src="images/100000000000017B000000E499EBD4BD.png" style="width:10.026cm;height:6.033cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000017B000000E499EBD4BD.png" /></p>
+<ul>
+  <li>Ici, nous avons accès au serveur web. Ce n&#x27;est pas toujours le cas. Si on déploie une application web/java dans un conteneur web qu&#x27;on n&#x27;administre pas soi-même, il est préférable que l&#x27;application amène avec elle toutes les bibliothèques dont elle a besoins. Elles doivent alors être placées dans le dossier <b>WEB-INF/lib</b> qu&#x27;il faut créer.
+  </li>
+  <li>nous avons indiqué que le contrôleur avait besoin d&#x27;un certain nombre d&#x27;informations qu&#x27;il trouvait normalement dans un fichier <b>struts-config.xml</b> placé dans le même dossier que <b>web.xml</b>. En fait, le nom de ce fichier est paramétrable. C&#x27;est le paramère <b>config</b>, ci-dessus, qui fixe ce nom.
+  </li>
+  <li>la balise <b>&lt;servlet-mapping&gt;</b> indique que le contrôleur sera atteint via toutes les URL se terminant par le suffixe <b>.do</b>.  Cette association est nécessitée par Struts. Ces URL seront ensuite filtrées par le contrôleur qui n&#x27;acceptera que les URL déclarées dans son fichier de configuration <b>struts-config.xml</b>
+  </li>
+</ul>
+
+<p>Pour l&#x27;instant, notre fichier <strong>web.xml</strong> est suffisant.</p>
+<ol start="4">
+  <li>Nous allons demander l&#x27;URL <b>/main.do</b> à l&#x27;application <b>strutspersonne</b>. D&#x27;après le fichier <b>web.xml</b> précédent, cette URL sera donc transmise à la servlet <b>org.apache.struts.action. </b>La classe <b>ActionServlet</b> va être instanciée et sa méthode <b>init</b> appelée. Celle-ci essaie de lire le fichier de configuration défini par le paramètre <b>config</b>. Celui-ci doit donc exister. Nous créons le fichier <b>struts-config.xml</b> suivant :
+  </li>
+</ol>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="cp">&lt;?xml version=&quot;1.0&quot; encoding=&quot;ISO-8859-1&quot; ?&gt;</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="cp">&lt;!DOCTYPE struts-config PUBLIC</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="cp">          &quot;-//Apache Software Foundation//DTD Struts Configuration 1.1//EN&quot;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="cp">          &quot;http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd&quot;&gt;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="nt">&lt;struts-config&gt;</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">    </span><span class="nt">&lt;action-mappings&gt;</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">      </span><span class="nt">&lt;action</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">          </span><span class="na">path=</span><span class="s">&quot;/main&quot;</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">          </span><span class="na">parameter=</span><span class="s">&quot;/main.html&quot;</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="w">          </span><span class="na">type=</span><span class="s">&quot;org.apache.struts.actions.ForwardAction&quot;</span>
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a><span class="w">      </span><span class="nt">/&gt;</span>
+<a id="__codelineno-4-14" name="__codelineno-4-14" href="#__codelineno-4-14"></a><span class="w">    </span><span class="nt">&lt;/action-mappings&gt;</span>
+<a id="__codelineno-4-15" name="__codelineno-4-15" href="#__codelineno-4-15"></a><span class="nt">&lt;/struts-config&gt;</span>
+</code></pre></div>
+<p>Remarquons que le fichier DTD de <strong>struts-config.xml</strong> n&#x27;est pas le même que celui du fichier <strong>web.xml</strong>, indiquant par là qu&#x27;ils n&#x27;ont pas la même structure. Pour chaque URL que le contrôleur doit gérer, il nous faut définir une balise <strong>&lt;action&gt;</strong>. Celle-ci sert à indiquer au contrôleur ce qu&#x27;il doit faire lorsqu&#x27;on lui demande cette URL. Ici, nous indiquons les éléments suivants :</p>
+<ol>
+  <li><b>path=&quot;/main&quot;</b> : définit le nom de l&#x27;URL configurée par la balise <b>&lt;action&gt;</b>. Le suffixe <b>.do</b> est implicite.
+  </li>
+  <li><b>type=&quot;org.apache.struts.actions.ForwardAction&quot;</b> : définit le nom de la classe <b>Action</b> qui doit traiter la demande. Ici, on utilise une classe <b>Action</b> prédéfinie dans Struts. Elle ne fait rien par elle-même et relaie la demande du client à l&#x27;URL indiquée dans l&#x27;attribut <b>parameter</b>.
+  </li>
+  <li><b>parameter=&quot;/main.html&quot;</b> : le nom de l&#x27;URL à qui doit être relayée la demande. Ici c&#x27;est un fichier HTML statique.
+  </li>
+</ol>
+
+<p>En résumé, lorsque l&#x27;utilisateur demandera l&#x27;URL <strong>/main.do,</strong> il obtiendra l&#x27;URL <strong>/main.html</strong>.</p>
+<ol start="5">
+  <li>Le fichier <b>main.html</b> sera le suivant :
+  </li>
+</ol>
+
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>    <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>      <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Application strutspersonne<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>  <span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>      Application strutspersonne active ....
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</code></pre></div>
+<p>Ce fichier est placé dans le dossier de l&#x27;application <strong>strutspersonne/vues</strong> :</p>
+<p><img src="images/10000000000001340000006A304F9E8B.png" style="width:8.147cm;height:2.805cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001340000006A304F9E8B.png" /></p>
+<p>On peut le demander directement avec l&#x27;URL <strong>http://localhost:8080/strutspersonne/main.html</strong> :</p>
+<p><img src="images/100000000000021B00000075CAF57BC4.png" style="width:14.259cm;height:3.096cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/100000000000021B00000075CAF57BC4.png" /></p>
+<p>Ici, le contrôleur Struts de l&#x27;application <strong>n&#x27;est pas intervenu</strong> puisqu&#x27;il n&#x27;intervient que si on demande l&#x27;URL de type <strong>*.do</strong>. Or ici, on a demandé l&#x27;URL <strong>/vues/main.html</strong>.</p>
+<ol start="6">
+  <li>Le fichier <b>struts-config.xml</b> construit précédemment doit être placé dans le même dossier WEB-INF que le fichier <b>web.xml</b> :
+  </li>
+</ol>
+
+<p><img src="images/10000000000001360000004DABBDF95D.png" style="width:8.2cm;height:2.037cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001360000004DABBDF95D.png" /></p>
+<ol start="7">
+  <li>Nous allons maintenant vérifier le bon fonctionnement du contrôleur de l&#x27;application <b>strutspersonne</b> en demandant l&#x27;URL <b>/main.do</b> après avoir, si nécessaire, relancé Tomcat.
+  </li>
+</ol>
+
+<p><img src="images/10000000000001DE00000074F290CE3D.png" style="width:12.645cm;height:3.069cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000001DE00000074F290CE3D.png" /></p>
+<p>Ici le contrôleur Struts est intervenu puisque nous avons demandé une URL de type <strong>*.do</strong>. Nous avons bien obtenu la page attendue (<strong>main.html</strong>). Nous avons donc les éléments de base du fonctionnement de notre application : le contexte <strong>strutspersonne</strong>, les fichiers de configuration <strong>web.xml</strong> et <strong>struts-config.xml</strong>, les bibliothèques Struts.</p>
+<p>Que se serait-il passé si nous avions demandé une URL de type <strong>/toto.do</strong> ? D&#x27;après le fichier <strong>web.xml</strong> de l&#x27;application strutspersonne, le contrôleur Struts est alors appelé pour la traiter. Celui-ci regarde alors son fichier de configuration <strong>struts-config.html</strong> et ne trouve aucune configuration pour l&#x27;URL <strong>/toto</strong>. Que fait-il alors ? Essayons :</p>
+<p><img src="images/10000000000002C80000014D10E10263.png" style="width:17.988cm;height:8.412cm;" alt="Image" class="odt-zoomable" data-zoom-src="images/10000000000002C80000014D10E10263.png" /></p>
+<p>Nous obtenons une page d&#x27;erreurs, ce qui semble normal. Nous pouvons maintenant aborder l&#x27;écriture d&#x27;une application.</p>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner">
+
+      <div>
+        <a href="https://tahe.developpez.com" target="_blank">
+          https://tahe.developpez.com
+        </a>
+        <br>
+        Ce cours-tutoriel écrit par <strong>Serge Tahé</strong> est mis à disposition du public selon les termes de la
+        <em>Licence Creative Commons Attribution – Pas d’Utilisation Commerciale –
+        Partage dans les Mêmes Conditions 3.0 non transposé</em>.
+      </div>
+
+    </div>
+  </div>
+
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": ".", "features": ["navigation.sections", "navigation.indexes", "navigation.expand", "toc.integrate", "navigation.top"], "search": "assets/javascripts/workers/search.7a47a382.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.e71a0d61.min.js"></script>
+      
+        <script src="javascripts/focus.js"></script>
+      
+    
+  </body>
+</html>
